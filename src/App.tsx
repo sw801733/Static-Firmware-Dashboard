@@ -9,6 +9,7 @@ import ComparePage from './components/compare/ComparePage';
 import HotspotPage from './components/hotspot/HotspotPage';
 import TrendsPage from './components/trends/TrendsPage';
 import WorkBoardPage from './components/workboard/WorkBoardPage';
+import GuidePage from './components/guide/GuidePage';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="/hotspot" element={<HotspotPage />} />
             <Route path="/trends" element={<TrendsPage />} />
             <Route path="/workboard" element={<WorkBoardPage />} />
+            <Route path="/guide" element={<GuidePage />} />
           </Routes>
         </main>
       </div>

@@ -17,6 +17,10 @@ const workItems = [
     { to: '/workboard', label: 'Work Board', icon: '✅' },
 ];
 
+const helpItems = [
+    { to: '/guide', label: 'User Guide', icon: '📖' },
+];
+
 const Sidebar: React.FC = () => {
     return (
         <aside className="sidebar">
@@ -58,6 +62,18 @@ const Sidebar: React.FC = () => {
 
                 <div className="nav-section-title" style={{ marginTop: 12 }}>Work</div>
                 {workItems.map(item => (
+                    <NavLink
+                        key={item.to}
+                        to={item.to}
+                        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+                    >
+                        <span className="nav-item-icon">{item.icon}</span>
+                        {item.label}
+                    </NavLink>
+                ))}
+
+                <div className="nav-section-title" style={{ marginTop: 12 }}>Help</div>
+                {helpItems.map(item => (
                     <NavLink
                         key={item.to}
                         to={item.to}
