@@ -75,7 +75,7 @@ const GuidePage: React.FC = () => {
                         <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '16px 20px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Overview <code>(/overview)</code></h3>
                             <ul style={{ paddingLeft: '20px', margin: 0 }}>
-                                <li>세션의 핵심 지표(KPI), 규칙셋별 현황, 위반 요약을 확인합니다.</li>
+                                <li>세션의 핵심 지표, 규칙셋별 현황, 위반 요약을 확인합니다.</li>
                                 <li>현재 세션을 빠르게 진단할 때 가장 먼저 확인하면 좋습니다.</li>
                             </ul>
                         </div>
@@ -83,8 +83,8 @@ const GuidePage: React.FC = () => {
                         <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '16px 20px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Compare <code>(/compare)</code></h3>
                             <ul style={{ paddingLeft: '20px', margin: 0 }}>
-                                <li>규칙셋 간 결과 차이를 비교합니다.</li>
-                                <li>공통/상충/누락 항목을 바탕으로 규칙 통합 전략을 세울 수 있습니다.</li>
+                                <li>회차별 결과 차이를 비교합니다.</li>
+                                <li>비교 분석 요약, 신규 위배 규칙, 증감하거나 감소한 규칙, 룰셋별 현황, 규칙 발생 원인(AI 분석 추가 예정)을 확인합니다.</li>
                             </ul>
                         </div>
 
@@ -136,7 +136,7 @@ const GuidePage: React.FC = () => {
                             <li>Overview에서 주요 경고량과 변동 확인</li>
                             <li>Compare/Hotspot으로 개선 타깃 도출</li>
                             <li>Work Board에 작업 등록 및 담당 지정</li>
-                            <li>다음 주 Trends로 개선 결과 검증</li>
+                            <li>Trends로 개선 결과 검증</li>
                         </ol>
                     </div>
 
