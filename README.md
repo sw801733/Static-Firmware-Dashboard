@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Static Firmware Dashboard 사용자 가이드
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1) 시작하기
 
-Currently, two official plugins are available:
+### 지원 파일
+- **Project Summary Report.xlsx**: 세션 생성용 필수 파일
+- **Reference.xlsx (선택)**: 규칙 매핑 기준 업로드 파일
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 기본 흐름
+1. **Upload**에서 분석 리포트를 업로드해 세션을 생성합니다.
+2. **Overview/Compare/Hotspot/Trends**에서 데이터를 탐색합니다.
+3. **Work Board**에서 개선 작업 우선순위를 관리합니다.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2) 메뉴별 사용법
 
-## Expanding the ESLint configuration
+## Sessions (`/`)
+- 저장된 분석 세션 목록을 확인합니다.
+- `New Session` 버튼으로 신규 업로드를 시작합니다.
+- 데모 데이터가 필요하면 `Load Demo Data`를 사용합니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Upload (`/upload`)
+- `Project Summary Report` 파일을 업로드해 세션을 생성합니다.
+- 업로드 후 파싱이 완료되면 분석 화면으로 이동할 수 있습니다.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Upload Reference (`/reference`)
+- 기준 규칙(Reference) 파일을 업로드합니다.
+- Compare / Work Board에서 매핑 정확도를 높이는 데 도움이 됩니다.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Overview (`/overview`)
+- 세션의 핵심 지표(KPI), 규칙셋별 현황, 위반 요약을 확인합니다.
+- 현재 세션을 빠르게 진단할 때 가장 먼저 확인하면 좋습니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Compare (`/compare`)
+- 규칙셋 간 결과 차이를 비교합니다.
+- 공통/상충/누락 항목을 바탕으로 규칙 통합 전략을 세울 수 있습니다.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Hotspot (`/hotspot`)
+- 집중 개선이 필요한 영역(핫스팟)을 우선순위로 확인합니다.
+- 영향도가 높은 항목부터 정리해 단기간 개선 효과를 얻을 수 있습니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Trends (`/trends`)
+- 세션/규칙 기준의 추세를 확인합니다.
+- 품질 지표가 개선되고 있는지 주기적으로 모니터링할 때 사용합니다.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Work Board (`/workboard`)
+- 개선 항목을 작업 단위로 관리합니다.
+- 상태(예: 대기/진행/완료)와 우선순위를 정해 실행 계획을 운영합니다.
+
+## User Guide (`/guide`)
+- 현재 문서의 요약 버전을 앱 내에서 바로 확인할 수 있는 페이지입니다.
+
+---
+
+## 3) 추천 운영 방식
+
+- **주간 루틴 예시**
+  1. 신규 리포트 업로드로 세션 생성
+  2. Overview에서 주요 경고량과 변동 확인
+  3. Compare/Hotspot으로 개선 타깃 도출
+  4. Work Board에 작업 등록 및 담당 지정
+  5. 다음 주 Trends로 개선 결과 검증
+
+- **데이터 품질 팁**
+  - 동일 포맷의 리포트 파일명을 팀 내 규칙으로 통일하세요.
+  - Reference 파일은 버전명을 포함해 관리하세요. (예: `reference_v2026-03.xlsx`)
+  - 세션 생성 시점/배포 시점을 함께 기록하면 회귀 분석이 쉬워집니다.
+
+---
+
+## 4) 자주 발생하는 이슈
+
+- 파일 업로드 후 결과가 비어 보이는 경우
+  - 엑셀 시트명/열 구조가 기대 포맷과 다른지 확인하세요.
+- 비교 화면에서 매핑이 기대와 다른 경우
+  - 최신 Reference 파일을 다시 업로드해 보세요.
+- 세션이 너무 많아 관리가 어려운 경우
+  - Sessions 화면에서 오래된 세션을 정리하고, 주차/릴리스 기준으로 네이밍 규칙을 사용하세요.
