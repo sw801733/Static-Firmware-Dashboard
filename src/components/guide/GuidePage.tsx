@@ -13,13 +13,13 @@ const GuidePage: React.FC = () => {
             </div>
 
             <div className="page-body" style={{ display: 'flex', flexDirection: 'column', gap: '48px', lineHeight: '1.7' }}>
-                
+
                 {/* 1) 시작하기 */}
                 <section>
                     <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span>🚀</span> 1) 시작하기
                     </h2>
-                    
+
                     <div style={{ marginBottom: '24px' }}>
                         <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}>지원 파일</h3>
                         <ul style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -84,7 +84,8 @@ const GuidePage: React.FC = () => {
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Compare <code>(/compare)</code></h3>
                             <ul style={{ paddingLeft: '20px', margin: 0 }}>
                                 <li>회차별 결과 차이를 비교합니다.</li>
-                                <li>비교 분석 요약, 신규 위배 규칙, 증감하거나 감소한 규칙, 룰셋별 현황, 규칙 발생 원인(AI 분석 추가 예정)을 확인합니다.</li>
+                                <li>비교 분석 요약, 신규 위배 규칙, 증감하거나 감소한 규칙, 룰셋별 현황, 규칙 발생 원인
+                                    (AI 분석 추가 예정)을 확인합니다.</li>
                             </ul>
                         </div>
 
@@ -173,7 +174,7 @@ const GuidePage: React.FC = () => {
                         </li>
                     </ul>
                 </section>
-                
+
             </div>
         </div>
     );
